@@ -50,6 +50,20 @@ function goToHash() {
   root.style.scrollBehavior = '';
 }
 
+/** Al imprimir, los logros de cada puesto se despliegan (si no, saldrían en blanco) y después vuelven a su estado.
+ *  Las tarjetas de Impact se quedan cerradas: su cita ya aparece en Experience. */
+function expandForPrint() {
+  let opened = [];
+  window.addEventListener('beforeprint', () => {
+    opened = [...document.querySelectorAll('.role details:not([open])')];
+    opened.forEach(d => { d.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    opened.forEach(d => { d.open = false; });
+    opened = [];
+  });
+}
+
 async function init() {
   try {
     const data = await loadProfile();
@@ -78,6 +92,7 @@ async function init() {
 
     document.getElementById('hero').removeAttribute('aria-busy');
     goToHash();
+    expandForPrint();
     document.documentElement.dataset.ready = 'true';   // señal para pruebas y animaciones
     animate();
   } catch (error) {

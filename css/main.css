@@ -199,3 +199,26 @@ html.anim-pending .hero-text, html.anim-pending .portrait, html.anim-pending .st
   background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, .18) 45%, transparent 60%); }
 /* Las máscaras de SplitText son inline-block con recorte: alineadas arriba, el nombre conserva su altura y no salta al terminar */
 .hero .name div { vertical-align: top; }
+
+/* ---------- Impresión (corrección mínima; la vista de impresión completa es RF-12, futura) ---------- */
+@media print {
+  /* Todo el contenido visible aunque no se haya animado: GSAP deja estilos en línea (opacidad, desplazamientos) */
+  *, *::before, *::after { opacity: 1 !important; visibility: visible !important; transform: none !important; translate: none !important; }
+  .portrait .photo { clip-path: none !important; box-shadow: none; }
+  /* Los navegadores no imprimen fondos: el encabezado pasa a texto oscuro sobre blanco */
+  .hero { min-height: 0; padding: 0 0 16px; background: none; color: var(--ink); }
+  .hero h1 { color: var(--ink); }
+  .hero .headline { color: var(--teal); }
+  .hero .meta { color: var(--ink-2); }
+  .hero .btn { min-height: 0; padding: 0; background: none; color: var(--accent); }
+  .stats-wrap { margin-top: 0; }
+  .stats { box-shadow: none; }
+  .site-footer { margin-top: 24px; background: none; color: var(--ink-2); }
+  .site-footer a { color: var(--accent); }
+  /* Elementos que solo sirven en pantalla */
+  .skip, .hero-bg, .portrait .shine, .hero .meta .dot, nav.anchors, .card .toggle { display: none !important; }
+  .card, .caps > li, .role .ach li, .edu-list li, .role .when { break-inside: avoid; }
+  /* Sin títulos ni fechas huérfanos al pie de página (en bloque, porque Chrome no aplica estos cortes dentro de una rejilla) */
+  .role { display: block; }
+  .eyebrow, h2, .lede, .role .when, .role-title, .role .org { break-after: avoid; }
+}

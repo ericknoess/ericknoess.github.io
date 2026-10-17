@@ -30,3 +30,9 @@ test('cada @font-face apunta a un woff2 existente y la licencia OFL acompaña a 
   for (const u of urls) assert.ok(existsSync(new URL(u, new URL('css/', root))), `no existe: ${u}`);
   assert.match(read('fonts/OFL.txt'), /SIL Open Font License, Version 1\.1/);
 });
+
+test('si el perfil enlaza un CV descargable, el archivo existe', () => {
+  const { profile } = JSON.parse(read('content/profile.json'));
+  if (profile.cvUrl === undefined) return;   // RF-09 aún sin activar
+  assert.ok(existsSync(new URL(profile.cvUrl, root)), `no existe ${profile.cvUrl}`);
+});

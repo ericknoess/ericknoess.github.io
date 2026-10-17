@@ -45,6 +45,8 @@ export function validateProfile(data) {
     for (const k of ['name', 'headline', 'location', 'linkedinUrl']) if (!isNonEmptyString(p[k])) err(`profile.${k}`, 'obligatorio');
     if (p.linkedinUrl && !/^https:\/\/www\.linkedin\.com\/in\/[\x21-\x7E]+$/.test(p.linkedinUrl)) err('profile.linkedinUrl', 'debe ser una URL https de LinkedIn codificada (sin espacios ni acentos)');
     if (!p.photo || !isNonEmptyString(p.photo.src) || !isNonEmptyString(p.photo.alt)) err('profile.photo', 'requiere src y alt');
+    // RF-09 (opcional): el CV descargable debe ser un PDF alojado en el propio sitio, con ruta relativa
+    if (p.cvUrl !== undefined && !/^(?!\/)(?!.*\.\.)[\w\-./]+\.pdf$/.test(p.cvUrl)) err('profile.cvUrl', 'debe ser una ruta relativa a un PDF del sitio (p. ej. cv/cv.pdf)');
     checkSource('profile', p.source);
   }
 

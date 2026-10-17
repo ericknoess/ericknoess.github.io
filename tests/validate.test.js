@@ -17,8 +17,9 @@ test('detecta una evidencia que apunta a algo inexistente', () => {
 
 test('detecta fechas mal formadas o invertidas', () => {
   const d = clone(loadProfile());
-  d.roles[1].start = '2020-4';
-  d.roles[2].start = '2021-01';               // posterior a su fin (2020-04)
+  const role = id => d.roles.find(r => r.id === id);   // por id: añadir puestos no rompe la prueba
+  role('r-az').start = '2020-4';
+  role('r-pb1').start = '2021-01';            // posterior a su fin (2020-04)
   const out = validateProfile(d).join('\n');
   assert.match(out, /formato YYYY-MM/);
   assert.match(out, /debe ser anterior/);
@@ -49,6 +50,7 @@ test('rechaza porcentajes en competencias', () => {
 
 test('publishable oculta lo no aprobado y limpia las evidencias huérfanas', () => {
   const d = clone(loadProfile());
+  const roleCount = d.roles.length;
   d.capabilities.forEach(c => { c.approved = true; });      // simula capacidades aprobadas
   for (const id of ['r-gr', 'r-pb1']) d.roles.find(r => r.id === id).approved = false;   // independiente de lo ya aprobado
   const pub = publishable(d);
@@ -57,7 +59,7 @@ test('publishable oculta lo no aprobado y limpia las evidencias huérfanas', () 
   assert.ok(pub.achievements.every(a => roleIds.includes(a.roleId)));
   const refs = pub.capabilities.flatMap(c => c.evidence.map(e => e.ref));
   assert.ok(!refs.includes('r-pb1') && !refs.includes('a-gr-tt'), 'no quedan enlaces a elementos ocultos');
-  assert.equal(d.roles.length, 4, 'no modifica el original');
+  assert.equal(d.roles.length, roleCount, 'no modifica el original');
 });
 
 test('publishable elimina una capacidad que se queda sin evidencias', () => {
@@ -71,4 +73,14 @@ test('exige meta.lastUpdated con formato YYYY-MM', () => {
   const d = clone(loadProfile());
   d.meta.lastUpdated = 'octubre 2026';
   assert.match(validateProfile(d).join('\n'), /meta\.lastUpdated/);
+});
+
+test('cvUrl (opcional) solo admite una ruta relativa a un PDF del sitio', () => {
+  const d = clone(loadProfile());
+  for (const bad of ['https://example.com/cv.pdf', '/cv/cv.pdf', 'cv/cv.docx', '../cv.pdf', 'javascript:alert(1)']) {
+    d.profile.cvUrl = bad;
+    assert.match(validateProfile(d).join('\n'), /profile\.cvUrl/, bad);
+  }
+  d.profile.cvUrl = 'cv/erick-noe-sanchez-cv.pdf';
+  assert.deepEqual(validateProfile(d), []);
 });

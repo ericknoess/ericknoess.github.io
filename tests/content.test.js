@@ -83,3 +83,19 @@ test('cada cifra de una capacidad está respaldada por sus propias evidencias', 
     }
   }
 });
+
+test('vista previa (Open Graph): coincide con los datos y la imagen existe', async () => {
+  const { readFileSync, existsSync } = await import('node:fs');
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  const og = Object.fromEntries([...html.matchAll(/<meta property="og:([a-z:]+)" content="([^"]*)">/g)].map(m => [m[1], m[2].replace(/&amp;/g, '&')]));
+  const site = 'https://ericknoess.github.io/';
+  assert.equal(og.url, site);
+  assert.equal(og.title, `${data.profile.name} · ${data.profile.headline}`);
+  assert.ok(og.image.startsWith(site), 'la imagen necesita una URL absoluta del propio sitio');
+  assert.ok(existsSync(new URL(`../${og.image.slice(site.length)}`, import.meta.url)), `no existe ${og.image}`);
+  // Las cifras de la descripción salen de datos aprobados: tamaños de equipo y la métrica del CV
+  const teams = data.roles.map(r => r.teamSize).filter(Boolean);
+  for (const n of teams) assert.match(og.description, new RegExp(`\\b${n}\\b`));
+  assert.ok(data.achievements.some(a => a.text.includes('100% increase in product yield')));
+  assert.match(og.description, /100% increase in product yield/);
+});

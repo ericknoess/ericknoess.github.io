@@ -34,10 +34,12 @@ test('ningún archivo publicado contiene términos prohibidos', t => {
 });
 
 test('las imágenes publicadas no contienen metadatos EXIF/XMP (ubicación, cámara…)', () => {
-  const images = publishedFiles().filter(f => /\.jpe?g$/i.test(f));
+  const images = publishedFiles().filter(f => /\.(jpe?g|png|ico)$/i.test(f));
+  assert.ok(images.length > 0);
   const withMeta = images.filter(f => {
     const bytes = readFileSync(new URL(f, root)).toString('latin1');
-    return bytes.includes('Exif\0') || bytes.includes('http://ns.adobe.com/xap');
+    return bytes.includes('Exif\0') || bytes.includes('http://ns.adobe.com/xap')
+      || /eXIf|iTXt|tEXt|zTXt|tIME/.test(bytes);   // bloques de metadatos de PNG (también dentro del .ico)
   });
   assert.deepEqual(withMeta, []);
 });

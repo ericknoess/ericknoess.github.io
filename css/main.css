@@ -9,6 +9,10 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.55 
 img { max-width: 100%; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+/* Sobre fondo oscuro, el azul no llega a 3:1: el foco usa el turquesa claro */
+.hero :focus-visible, .site-footer :focus-visible { outline-color: var(--teal-light); }
+/* Dentro de contenedores que recortan lo que sobresale (overflow), el contorno se dibuja por dentro */
+nav.anchors a:focus-visible, .card summary:focus-visible { outline-offset: -3px; }
 .wrap { max-width: var(--content); margin: 0 auto; padding: 0 var(--gutter); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 
@@ -29,7 +33,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
   .hero-grid { grid-template-columns: 1fr 300px; gap: 48px; }
 }
 .hero h1 { margin: 0; font-size: clamp(32px, 6vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; color: #FFFFFF; }
-.hero .headline { margin: 14px 0 0; font-size: clamp(17px, 2.4vw, 22px); font-weight: 500; color: var(--teal-light); }
+.hero .headline { margin: 14px 0 0; font-size: clamp(17px, 2.4vw, 22px); font-weight: 500; color: var(--on-dark-accent); }
 .hero .meta { margin: 14px 0 0; color: var(--on-dark-muted); font-size: 15px; display: flex; align-items: center; gap: 8px; }
 .hero .meta .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal-light); box-shadow: 0 0 0 4px rgba(127, 196, 201, .2); }
 
@@ -102,9 +106,10 @@ h2 { margin: 0 0 6px; font-size: 26px; line-height: 1.25; font-weight: 600; }
 @media (min-width: 640px) { .impact { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1000px) { .impact { grid-template-columns: repeat(4, 1fr); } }
 .card { position: relative; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg); overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease, border-color .25s; scroll-margin-top: 72px; }
+  transition: translate .25s ease, box-shadow .25s ease, border-color .25s; scroll-margin-top: 72px; }
+/* El hover usa `translate` (no `transform`): GSAP anima `transform` al aparecer y una transición CSS sobre ese mismo valor la dejaba a medias */
 .card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); }
-.card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(15, 42, 51, .10); border-color: #C9D6D9; }
+.card:hover { translate: 0 -4px; box-shadow: 0 14px 32px rgba(15, 42, 51, .10); border-color: #C9D6D9; }
 .card summary { list-style: none; cursor: pointer; padding: 20px 18px 14px; }
 .card summary::-webkit-details-marker { display: none; }
 .card .big { display: block; font-size: 44px; line-height: 1; font-weight: 600; letter-spacing: -0.01em; }
@@ -183,9 +188,9 @@ h2 { margin: 0 0 6px; font-size: 26px; line-height: 1.25; font-weight: 600; }
 
 /* ---------- Página 404 ---------- */
 .hero.not-found { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 48px 0; }
-.not-found .code { margin: 0 0 12px; font: 500 13px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--teal-light); }
+.not-found .code { margin: 0 0 12px; font: 500 13px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark-accent); }
 .not-found h1 { font-size: clamp(30px, 5vw, 44px); }
-.not-found .headline { color: var(--on-dark-muted); font-weight: 400; max-width: 46ch; }
+.not-found .headline { color: var(--on-dark); font-weight: 400; max-width: 46ch; }
 
 /* ---------- Animaciones (js/anim.js) ---------- */
 /* Mientras GSAP prepara la entrada, el encabezado se oculta para que no parpadee (ver js/boot.js) */

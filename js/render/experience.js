@@ -26,7 +26,8 @@ export function renderExperience(data, asOf) {
         h('p', { class: 'org', text: `${r.company} · ${r.location}` }),
         chips.length > 0 && h('ul', { class: 'chips', 'aria-label': 'Highlights' }, chips.map(c => h('li', { text: c }))),
         count > 0 && h('details', { open: i === 0 },     // el puesto actual aparece desplegado
-          h('summary', { text: `${count} ${count === 1 ? 'achievement' : 'achievements'}` }),
+          h('summary', {}, `${count} ${count === 1 ? 'achievement' : 'achievements'}`,
+            h('span', { class: 'sr-only', text: ` · ${r.title}` })),   // contexto para quien navega con el tabulador
           h('ul', { class: 'ach' }, achievements.map(a => h('li', { id: a.id, text: a.text })))
         )
       )

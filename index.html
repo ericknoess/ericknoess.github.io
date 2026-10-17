@@ -1,2 +1,55 @@
-<h1>Este es un sitio web con github pages<h1>
-	<p>fue creado para el curso de github<p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Erick Noé Sánchez Sánchez · Tech-Enabled Operations Leader &amp; Biotech Engineer</title>
+  <meta name="description" content="Tech-Enabled Operations Leader &amp; Biotech Engineer.">
+  <script src="js/boot.js"></script>
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- GSAP (licencia "Standard no-charge"), alojado en el sitio. Con defer se ejecuta en orden y antes de main.js -->
+  <script defer src="vendor/gsap/gsap.min.js"></script>
+  <script defer src="vendor/gsap/ScrollTrigger.min.js"></script>
+  <script defer src="vendor/gsap/SplitText.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="hero" id="hero" aria-busy="true">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-grid" id="hero-content">
+      <!-- Estado de carga: se sustituye al pintar los datos -->
+      <div class="skeleton" aria-hidden="true">
+        <span class="s-name"></span><span class="s-head"></span><span class="s-meta"></span>
+      </div>
+      <p class="sr-only" role="status">Loading profile…</p>
+      <noscript>
+        <div class="notice">
+          <p>This page needs JavaScript to display the profile.</p>
+          <p><a href="https://www.linkedin.com/in/erick-no%C3%A9-s%C3%A1nchez-s%C3%A1nchez-565855151">View my LinkedIn profile</a></p>
+        </div>
+      </noscript>
+    </div>
+  </header>
+
+  <div class="wrap stats-wrap" id="glance"></div>
+
+  <main id="main" tabindex="-1"></main>
+
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <!-- Estado de error: se muestra si los datos no cargan o no pasan la validación -->
+  <div class="notice" id="app-error" role="alert" hidden>
+    <p>Sorry, this page could not be loaded right now.</p>
+    <p><a href="https://www.linkedin.com/in/erick-no%C3%A9-s%C3%A1nchez-s%C3%A1nchez-565855151">View my LinkedIn profile</a></p>
+  </div>
+</body>
+</html>

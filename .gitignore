@@ -1,0 +1,9 @@
+# --- Privado: nunca se publica (el repositorio es público) ---
+data/
+docs/
+CLAUDE.md
+.claude/
+tests/private/
+
+# --- Sistema ---
+.DS_Store

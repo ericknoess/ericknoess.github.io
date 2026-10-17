@@ -1,0 +1,30 @@
+/* Tokens de diseño: colores, tipografía y medidas. Todo el resto de CSS los usa. */
+:root {
+  /* Color (contraste sobre blanco: ink ~15:1, teal ~7.6:1, accent ~5.7:1, muted ~5.3:1) */
+  --ink: #0F2A33;
+  --ink-2: #3D5560;
+  --muted: #5B6F77;
+  --teal: #1D5C63;
+  --teal-light: #7FC4C9;       /* solo sobre fondo oscuro (~7.6:1 sobre --ink) */
+  --accent: #0A6E94;
+  --surface: #F7F9F9;
+  --tint: #E8F1F1;
+  --line: #DCE3E5;
+  --bg: #FFFFFF;
+  --on-dark: #EAF3F4;
+  --on-dark-muted: #B8CCD0;
+
+  /* Tipografía (IBM Plex, alojada en el sitio: ver css/fonts.css) */
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Medidas */
+  --radius: 8px;
+  --radius-photo: 22px;
+  --content: 1080px;
+  --gutter: 16px;
+}
+
+@media (min-width: 640px) {
+  :root { --gutter: 32px; }
+}

@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "lastUpdated": "2026-10"
+  },
+  "profile": {
+    "name": "Erick Noé Sánchez Sánchez",
+    "headline": "Tech-Enabled Operations Leader & Biotech Engineer",
+    "location": "Toluca, State of Mexico",
+    "linkedinUrl": "https://www.linkedin.com/in/erick-no%C3%A9-s%C3%A1nchez-s%C3%A1nchez-565855151",
+    "photo": {
+      "src": "img/portrait.jpg",
+      "alt": "Portrait of Erick Noé Sánchez Sánchez"
+    },
+    "source": [
+      "cv-current",
+      "user"
+    ]
+  },
+  "roles": [
+    {
+      "id": "r-pb2",
+      "company": "Probiomed S.A. de C.V.",
+      "location": "Mexico",
+      "title": "Upstream Manufacturing Team Leader & Process Software Engineer",
+      "start": "2022-01",
+      "end": null,
+      "teamSize": 50,
+      "chips": [
+        "GxP",
+        "MES",
+        "Python · PostgreSQL"
+      ],
+      "achievementIds": [
+        "a-pb2-mes",
+        "a-pb2-data",
+        "a-pb2-coach",
+        "a-pb2-dash"
+      ],
+      "source": [
+        "cv-current",
+        "user"
+      ],
+      "approved": true
+    },
+    {
+      "id": "r-az",
+      "company": "Azteca Vacunas S.A. de C.V.",
+      "location": "Mexico",
+      "title": "Process Operations Engineer",
+      "start": "2020-04",
+      "end": "2022-01",
+      "chips": [
+        "MES",
+        "Aseptic filling"
+      ],
+      "achievementIds": [
+        "a-az-mes",
+        "a-az-filt"
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "r-pb1",
+      "company": "Probiomed S.A. de C.V.",
+      "location": "Mexico",
+      "title": "Cell Culture / Production Supervisor",
+      "originalTitle": "Supervisor de cultivo/producción",
+      "start": "2018-05",
+      "end": "2020-04",
+      "teamSize": 10,
+      "chips": [
+        "Bioreactors"
+      ],
+      "achievementIds": [
+        "a-pb1-scope"
+      ],
+      "source": [
+        "cv-2018",
+        "user"
+      ],
+      "approved": true
+    },
+    {
+      "id": "r-gr",
+      "company": "Grimann S.A. de C.V. (SANFER)",
+      "location": "Mexico",
+      "title": "Technical Assistance Engineer",
+      "originalTitle": "Ingeniero de Asistencia Técnica",
+      "start": "2014-05",
+      "end": "2017-09",
+      "chips": [
+        "Technology transfer",
+        "Statistical analysis"
+      ],
+      "achievementIds": [
+        "a-gr-vac",
+        "a-gr-tt",
+        "a-gr-methods",
+        "a-gr-stats"
+      ],
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    }
+  ],
+  "achievements": [
+    {
+      "id": "a-pb2-mes",
+      "roleId": "r-pb2",
+      "text": "Lead upstream manufacturing operations and drive strategic continuous improvement initiatives by architecting and deploying a GxP-compliant Manufacturing Execution System (MES), bridging plant stakeholder requirements with scalable digital solutions.",
+      "tags": [
+        "mes-deployment",
+        "led"
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-pb2-data",
+      "roleId": "r-pb2",
+      "text": "Analyze complex operational data and metrics using Python and PostgreSQL to detect systemic bottlenecks, successfully driving a 100% increase in product yield and a 9% reduction in operational losses.",
+      "metrics": [
+        {
+          "id": "m-yield",
+          "display": "+100%",
+          "label": "Product yield",
+          "spoken": "plus 100 percent",
+          "evidence": "100% increase in product yield"
+        },
+        {
+          "id": "m-losses",
+          "display": "−9%",
+          "label": "Operational losses",
+          "spoken": "minus 9 percent",
+          "evidence": "9% reduction in operational losses"
+        }
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-pb2-coach",
+      "roleId": "r-pb2",
+      "text": "Coach and manage plant personnel on new digital standard operating procedures, ensuring smooth cross-departmental workflows, zero downtime for critical tracking tools, and strict adherence to sanitary and quality regulations.",
+      "metrics": [
+        {
+          "id": "m-downtime",
+          "display": "Zero",
+          "label": "Downtime for critical tracking tools",
+          "spoken": "zero",
+          "evidence": "zero downtime for critical tracking tools"
+        }
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-pb2-dash",
+      "roleId": "r-pb2",
+      "text": "Built and maintained an automated deviation control dashboard to streamline operational audits, standardize safety protocols, and track 50 concurrent variables across 12 simultaneous production batches.",
+      "metrics": [
+        {
+          "id": "m-variables",
+          "display": "50 / 12",
+          "label": "Variables tracked across simultaneous batches",
+          "spoken": "50 variables across 12 batches",
+          "evidence": "50 concurrent variables across 12 simultaneous production batches"
+        }
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-az-mes",
+      "roleId": "r-az",
+      "text": "Contributed to the development and implementation of an electronic Manufacturing Execution System (MES) for process data recording, significantly improving inventory management and workflow traceability across the supply chain.",
+      "tags": [
+        "mes-deployment",
+        "contributed"
+      ],
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-az-filt",
+      "roleId": "r-az",
+      "text": "Programmed and deployed automated control systems for online filtration during aseptic filling, ensuring strict quality compliance, standardization, and seamless integration of software with physical plant operations.",
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-pb1-scope",
+      "roleId": "r-pb1",
+      "text": "Production of recombinant proteins expressed in prokaryotes and monoclonal antibodies produced in eukaryotes; operation of bioreactors and mechanical bioseparations.",
+      "originalText": "Producción de proteínas recombinantes expresadas en procariontes y anticuerpos monoclonales producidos en eucariontes. Manejo de biorreactores y bioseparaciones mecánicas.",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-gr-vac",
+      "roleId": "r-gr",
+      "text": "Contributed extensively to the development of a poultry vaccine against Avibacterium paragallinarum and its transfer to production.",
+      "originalText": "Amplia contribución en el desarrollo de una vacuna para aves, que brinda protección contra la bacteria Avibacterium paragallinarum, así como su transferencia al área de producción.",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-gr-tt",
+      "roleId": "r-gr",
+      "text": "Received the technology transfer for producing recombinant human G-CSF (Filgrastim) and Interferon α2A in E. coli (fermentation) and completed it with optimal results.",
+      "originalText": "Recibir la transferencia de tecnología para la producción de G-CSF (Filgrastim) e Interferón α2A recombinantes humanos en Escherichia coli (Fermentación) y concluirla con resultados óptimos.",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-gr-methods",
+      "roleId": "r-gr",
+      "text": "Implemented analytical methods for biopharmaceuticals, including cell-culture potency, residual DNA and host-cell protein assays.",
+      "originalText": "Implementación de métodos analíticos para biofármacos, como prueba de potencia en cultivo celular, ADN residual y proteínas del hospedero.",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    },
+    {
+      "id": "a-gr-stats",
+      "roleId": "r-gr",
+      "text": "Statistical analysis of biological assays and processes.",
+      "originalText": "Análisis estadístico para ensayos y procesos biológicos.",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "c-people",
+      "title": "People leadership at scale",
+      "summary": "Led production teams of 10 people as Supervisor and 50 as Team Leader, coaching plant personnel on new digital operating procedures.",
+      "evidence": [
+        {
+          "ref": "a-pb2-coach",
+          "label": "Probiomed · coaching on digital SOPs"
+        },
+        {
+          "ref": "r-pb2",
+          "label": "Probiomed · Team Leader, team of 50"
+        },
+        {
+          "ref": "r-pb1",
+          "label": "Probiomed · Supervisor, team of 10"
+        }
+      ],
+      "approved": true
+    },
+    {
+      "id": "c-data",
+      "title": "Data-driven continuous improvement",
+      "summary": "Bottleneck analysis with Python and PostgreSQL that drove a 100% increase in product yield and a 9% reduction in operational losses.",
+      "evidence": [
+        {
+          "ref": "a-pb2-data",
+          "label": "Probiomed · bottleneck analysis"
+        }
+      ],
+      "approved": true
+    },
+    {
+      "id": "c-quality",
+      "title": "Safety, quality & standardization",
+      "summary": "GxP-regulated operations, standardized safety protocols and strict sanitary and quality compliance.",
+      "evidence": [
+        {
+          "ref": "a-pb2-dash",
+          "label": "Probiomed · deviation control dashboard"
+        },
+        {
+          "ref": "a-az-filt",
+          "label": "Azteca Vacunas · aseptic filling controls"
+        },
+        {
+          "ref": "a-pb2-mes",
+          "label": "Probiomed · GxP-compliant MES"
+        },
+        {
+          "ref": "a-pb2-coach",
+          "label": "Probiomed · sanitary & quality adherence"
+        }
+      ],
+      "approved": true
+    },
+    {
+      "id": "c-launch",
+      "title": "Launching new systems & processes",
+      "summary": "Two MES deployments and technology transfers taken from development into production.",
+      "evidence": [
+        {
+          "ref": "a-pb2-mes",
+          "label": "Probiomed · GxP MES (led)"
+        },
+        {
+          "ref": "a-az-mes",
+          "label": "Azteca Vacunas · MES (contributed)"
+        },
+        {
+          "ref": "a-gr-tt",
+          "label": "Grimann · technology transfer"
+        },
+        {
+          "ref": "a-gr-vac",
+          "label": "Grimann · vaccine transfer to production"
+        }
+      ],
+      "approved": true
+    },
+    {
+      "id": "c-tools",
+      "title": "Operational monitoring tools",
+      "summary": "Built an automated dashboard tracking 50 concurrent variables across 12 simultaneous production batches.",
+      "evidence": [
+        {
+          "ref": "a-pb2-dash",
+          "label": "Probiomed · deviation control dashboard"
+        }
+      ],
+      "approved": true
+    }
+  ],
+  "competencies": [
+    {
+      "category": "Operations & Leadership",
+      "items": [
+        "Cross-Functional Team Leadership",
+        "Performance Management",
+        "Process Standardization",
+        "Quality Assurance & Safety Compliance"
+      ]
+    },
+    {
+      "category": "Process Improvement",
+      "items": [
+        "KPI Tracking",
+        "Bottleneck Detection",
+        "Workflow Traceability",
+        "Lean / Continuous Improvement",
+        "Data-Driven Decision Making"
+      ]
+    },
+    {
+      "category": "Technical & Systems",
+      "items": [
+        "Manufacturing Execution Systems (MES)",
+        "LIMS",
+        "Data Analytics (Python, SQL)",
+        "Cloud Infrastructure (AWS)",
+        "AI-Assisted Automation"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "e-upibi",
+      "institution": "Instituto Politécnico Nacional (UPIBI)",
+      "program": "Bachelor's Degree in Biotechnology Engineering",
+      "start": "2008-08",
+      "end": "2013-12",
+      "status": "completed",
+      "source": [
+        "cv-current",
+        "user"
+      ],
+      "approved": true
+    },
+    {
+      "id": "e-unitec",
+      "institution": "Universidad Tecnológica de México (UNITEC)",
+      "program": "Bachelor's Degree in Software Engineering",
+      "expected": "2028",
+      "status": "in-progress",
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "e-cecyt",
+      "institution": "Centro de Estudios Científicos y Tecnológicos # 3 (IPN)",
+      "program": "Technical Degree in Digital Systems",
+      "start": "2005-08",
+      "end": "2008-06",
+      "status": "completed",
+      "source": [
+        "cv-current"
+      ],
+      "approved": true
+    },
+    {
+      "id": "e-sie",
+      "institution": "Soluciones Integrales para Emprendimientos (SIE)",
+      "program": "Process Identification and Mapping (course)",
+      "originalText": "Curso Identificación y mapeo de procesos",
+      "status": "completed",
+      "source": [
+        "cv-2018"
+      ],
+      "approved": true
+    }
+  ],
+  "languages": [
+    {
+      "name": "Spanish",
+      "level": "Native",
+      "source": [
+        "cv-current"
+      ]
+    },
+    {
+      "name": "English",
+      "level": "Professional Working Proficiency (B2)",
+      "source": [
+        "cv-current"
+      ]
+    }
+  ]
+}

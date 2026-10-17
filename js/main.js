@@ -31,6 +31,25 @@ function showError(error) {
   document.getElementById('app-error').hidden = false;
 }
 
+/**
+ * Enlaces directos (p. ej. /#experience o /#a-gr-tt): el ancla no existía cuando el navegador cargó la página,
+ * porque el contenido se pinta después. Se abre el desplegable que la contiene y se repite la navegación al ancla,
+ * para que el navegador desplace la página y aplique :target (resaltado). location.replace no añade historial.
+ */
+function goToHash() {
+  let id;
+  try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+  const target = id && document.getElementById(id);
+  if (!target) return;
+  const details = target.closest('details');
+  if (details) details.open = true;
+  const root = document.documentElement;
+  root.style.scrollBehavior = 'auto';   // salto inmediato: un scroll suave lo cortaría el recálculo de las animaciones
+  history.replaceState(null, '', location.pathname + location.search);
+  location.replace(`#${encodeURIComponent(id)}`);
+  root.style.scrollBehavior = '';
+}
+
 async function init() {
   try {
     const data = await loadProfile();
@@ -58,6 +77,7 @@ async function init() {
     renderFooter(document.getElementById('site-footer'), site);
 
     document.getElementById('hero').removeAttribute('aria-busy');
+    goToHash();
     document.documentElement.dataset.ready = 'true';   // señal para pruebas y animaciones
     animate();
   } catch (error) {

@@ -44,7 +44,7 @@
     },
     {
       "id": "r-az",
-      "company": "Azteca Vacunas S.A. de C.V.",
+      "company": "Azteca Vacunas S.A. de C.V. (Sanofi)",
       "location": "Mexico",
       "title": "Process Operations Engineer",
       "start": "2020-04",
@@ -58,7 +58,8 @@
         "a-az-filt"
       ],
       "source": [
-        "cv-current"
+        "cv-current",
+        "user"
       ],
       "approved": true
     },
